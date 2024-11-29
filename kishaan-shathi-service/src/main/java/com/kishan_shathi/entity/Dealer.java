@@ -24,7 +24,7 @@ public class Dealer {
     private String phoneNumber;
     private String address;
 
-    @OneToMany(mappedBy = "dealer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<ShellingRequest> shellingRequests;
+//    @OneToMany(mappedBy = "dealer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    private List<ShellingRequest> shellingRequests;
 
 }
