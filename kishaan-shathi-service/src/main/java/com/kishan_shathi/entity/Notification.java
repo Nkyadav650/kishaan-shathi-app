@@ -24,7 +24,7 @@ public class Notification {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private User user; // User can be a farmer or dealer
+    private UserEntity user; // User can be a farmer or dealer
 
     private boolean isRead;
     private Date dateCreated;
