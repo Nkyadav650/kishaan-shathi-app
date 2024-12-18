@@ -8,7 +8,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import com.google.api.client.json.Json;
-import com.kishan_shathi.dto.UserEntityDto;
+import com.kishan_shathi.dto.UserDto;
 import com.kishan_shathi.entity.UserEntity;
 import com.kishan_shathi.jwt.JwtService;
 import com.kishan_shathi.model.LoginResponse;
@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String saveUsers(UserEntityDto userEntityDto) {
+	public String saveUsers(UserDto userEntityDto) {
 		UserEntity userEntity = new UserEntity();
 		BeanUtils.copyProperties(userEntityDto, userEntity);
 		log.info("user Entity data to save : {}",userEntity);

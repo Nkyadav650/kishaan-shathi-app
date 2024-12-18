@@ -3,7 +3,7 @@ package com.kishan_shathi.dto;
 import lombok.Data;
 
 @Data
-public class UserEntityDto {
+public class UserDto {
 
 	private Long userId;
 	private String name;

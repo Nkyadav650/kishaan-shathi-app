@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kishan_shathi.commonresponse.CommonResponse;
 import com.kishan_shathi.config.OauthSuccessHandler;
-import com.kishan_shathi.dto.UserEntityDto;
+import com.kishan_shathi.dto.UserDto;
 import com.kishan_shathi.exception.InValidUserExcepption;
 import com.kishan_shathi.jwt.JwtService;
 import com.kishan_shathi.model.LoginRequest;
@@ -41,7 +41,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/createUser")
-	public ResponseEntity<Response<Object>> saveUsers(@RequestBody UserEntityDto userEntityDto){
+	public ResponseEntity<Response<Object>> saveUsers(@RequestBody UserDto userEntityDto){
 		String result = userService.saveUsers(userEntityDto);
 		return new CommonResponse<>().prepareSuccessResponseObject(result, HttpStatus.CREATED);
 	}
