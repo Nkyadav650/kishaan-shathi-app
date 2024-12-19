@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.kishan_shathi.entity.Dealer;
 import com.kishan_shathi.entity.Farmer;
 @Repository
-public interface DealerRepository extends JpaRepository<Dealer, Long> {
+public interface DealerRepository extends JpaRepository<Dealer, String> {
 
 }

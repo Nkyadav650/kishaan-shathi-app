@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.kishan_shathi.entity.Farmer;
 @Repository
-public interface FarmerRepository extends JpaRepository<Farmer, Long> {
+public interface FarmerRepository extends JpaRepository<Farmer, String> {
 
 }

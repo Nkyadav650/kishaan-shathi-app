@@ -5,13 +5,13 @@ import com.kishan_shathi.requestenum.PaymentStatus;
 import lombok.Data;
 
 @Data
-public class Payment {
+public class PaymentDto {
    
 	private Long paymentId;
     private Double amount;    
     private PaymentStatus status;
     private String paymentMethod;
-    private ShellingRequest shellingRequest;
+    private Long shellingRequest;
 
 }
 

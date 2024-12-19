@@ -1,7 +1,5 @@
 package com.kishan_shathi.requestenum;
 
 public enum RequestStatus {
-	 PENDING,
-	    IN_PROGRESS,
-	    COMPLETED
+	AVAILABLE, SOLD_OUT, IN_TRANSIT
 }
