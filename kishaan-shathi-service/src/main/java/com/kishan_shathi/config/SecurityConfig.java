@@ -50,7 +50,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(req->req.requestMatchers("/register","/login",
                         "/getAllSecurityQuestion","/refreshToken/**","getquestionByUserId/{userId}",
                         "/getAllproducts","/password/**","findEmail/**","/api/payments/**",
-                        "/cart/updateQuantity/{cartId}","/get-token/**", "/orderdetails/createOrder").permitAll()
+                        "/cart/updateQuantity/{cartId}","/get-token/**", "/orderdetails/createOrder",
+                                "/api/dealers/**","/api/farmers/**").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
 
@@ -78,6 +79,7 @@ public class SecurityConfig {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
+
     @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();

@@ -7,7 +7,7 @@ import com.kishan_shathi.entity.UserEntity;
 import lombok.Data;
 
 @Data
-public class Notification {
+public class NotificationDto {
 
 	private Long notificationId;
 	private String message;

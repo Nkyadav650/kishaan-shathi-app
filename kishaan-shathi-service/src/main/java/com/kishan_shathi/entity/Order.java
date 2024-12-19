@@ -1,16 +1,13 @@
 package com.kishan_shathi.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 
 @Entity
 @Data
 @Builder
+@Table(name = "order_table")
 public class Order {
 
     @Id

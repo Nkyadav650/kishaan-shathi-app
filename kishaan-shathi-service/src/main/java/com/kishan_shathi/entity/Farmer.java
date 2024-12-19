@@ -14,15 +14,16 @@ import lombok.Data;
 @Data
 @Entity
 public class Farmer {
-	 @Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private Long farmerId;
+
+
+	@Id
+	    private String farmerId;
 
 	    private String name;
 	    private String email;
 	    private String phoneNumber;
 	    private String address;
 
-	    @OneToMany(mappedBy = "farmer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	    private List<ShellingRequest> shellingRequests;
+//	    @OneToMany(mappedBy = "farmer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	    private List<ShellingRequest> shellingRequests;
 }

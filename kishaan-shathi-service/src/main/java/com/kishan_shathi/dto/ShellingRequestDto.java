@@ -2,6 +2,7 @@ package com.kishan_shathi.dto;
 
 import java.util.Date;
 
+import com.kishan_shathi.entity.Dealer;
 import com.kishan_shathi.requestenum.RequestStatus;
 
 import jakarta.persistence.Entity;
@@ -16,8 +17,7 @@ import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
 @Data
-@Entity
-public class ShellingRequest {
+public class ShellingRequestDto {
 	   
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +32,7 @@ public class ShellingRequest {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "farmer_id")
-    private Farmer farmer;
+    private FarmerDto farmer;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dealer_id")

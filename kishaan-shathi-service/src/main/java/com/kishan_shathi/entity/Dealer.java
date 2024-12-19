@@ -15,9 +15,9 @@ import lombok.Data;
 @Entity
 public class Dealer {
     
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long dealerId;
+    private String dealerId;
 
     private String name;
     private String email;

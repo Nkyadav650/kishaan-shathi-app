@@ -30,13 +30,13 @@ public class ShellingRequest {
     @Enumerated(EnumType.STRING)
     private RequestStatus status; // Enum for status
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "farmer_id")
-    private Farmer farmer;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dealer_id")
-    private Dealer dealer;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "farmer_id")
+//    private Farmer farmer;
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "dealer_id")
+//    private Dealer dealer;
 
     private Date requestDate;
     private Date expectedCompletionDate;
