@@ -1,0 +1,39 @@
+.container1 {
+  
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 2px; /* Optional: Adjust the gap between columns */
+    width: 100%; /* Ensure the container takes the full width */
+  }
+  
+  .one {
+    background-color: lightblue; /* Optional: For visual distinction */
+    padding: 10px;
+  }
+  
+  .sinup {
+    background-color: rgb(236, 250, 217)
+    ; /* Optional: For visual distinction */
+    padding: 40px;
+    margin:10px 15px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
+
+  }
+
+  .sinup .inputGroup{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .sinup .inputGroup input{
+    margin-top: 2px;
+    padding: 8px;
+    border-radius: 5px;
+  }
+  .sinup .inputGroup label{
+    margin-top: 5px;
+  }
+  .loginbutton{
+    color:blue
+  }
