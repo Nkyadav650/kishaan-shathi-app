@@ -1,0 +1,10 @@
+.children{
+    margin-top: 5em;
+    flex-grow: 1;
+    
+}
+.base-layout{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
