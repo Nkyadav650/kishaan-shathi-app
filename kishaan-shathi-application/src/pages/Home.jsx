@@ -1,11 +1,11 @@
 import React from 'react'
-import Base from '../component/Base'
+// import Base from '../component/Base'
 
 const Home = () => {
   return (
-    <Base>
+    // <Base>
 <div>Home</div>
-    </Base>
+    // </Base>
     
   )
 }
