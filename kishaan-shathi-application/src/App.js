@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
