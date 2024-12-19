@@ -7,16 +7,16 @@ import java.util.concurrent.TimeUnit;
 
 import javax.crypto.SecretKey;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
-@Service
+
+@Configuration
 public class JwtService {
 
 	 private static final String SECRET = "2A3896817DC8FD6EFB98D14D5369E2D0C64C3ED425D46A0A38C0B7F049E90AE998D6EEB3FBF41A30508A964AE5152A221054110A0FC92215B16BBF9CD8143088";
@@ -31,20 +31,15 @@ public class JwtService {
 	                .expiration(Date.from(Instant.now().plusMillis(VALIDITY)))
 	                .signWith(getSignKey())
 	                .compact();
-
-
-	    }
+   }
 	    //genarates refresh token
 	    public String genarateRefreshToken(UserDetails userDetails) {
 	        return Jwts.builder()
-
 	                .subject(userDetails.getUsername())
 	                .issuedAt(Date.from(Instant.now()))
 	                .expiration(new Date(System.currentTimeMillis() + 10*1000 * 60 * 60))
 	                .signWith(getSignKey())
 	                .compact();
-
-
 	    }
 
 

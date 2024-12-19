@@ -19,6 +19,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.kishan_shathi.jwt.JwtAuthenticationFilter;
+import com.kishan_shathi.jwt.JwtEntryAuthenticationPoint;
 import com.kishan_shathi.serviceImpl.MyUserDetailasService;
 
 @Configuration
@@ -31,6 +32,8 @@ public class SecurityConfig {
     @Autowired
     private JwtAuthenticationFilter jwtAuthenticationFilter;
     
+    @Autowired
+    private JwtEntryAuthenticationPoint point;
 
    // @Autowired
     //private OAuthAuthenticationSuccessHandler handler;
@@ -47,12 +50,9 @@ public class SecurityConfig {
 
         		   .cors(cors->cors.configurationSource(corsConfigurationSource()))// CSRF is disabled here
 
-                .authorizeHttpRequests(req->req.requestMatchers("/register","/login",
-                        "/getAllSecurityQuestion","/refreshToken/**","getquestionByUserId/{userId}",
-                        "/getAllproducts","/password/**","findEmail/**","/api/payments/**",
-                        "/cart/updateQuantity/{cartId}","/get-token/**", "/orderdetails/createOrder",
-                                "/api/dealers/**","/api/farmers/**").permitAll()
+                .authorizeHttpRequests(req->req.requestMatchers("/user/**","/api/dealers/**","/api/farmers/**").permitAll()
                         .anyRequest().authenticated())
+                .exceptionHandling(ex -> ex.authenticationEntryPoint(point))
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
 
 //                .oauth2Login(oauth2 -> { 

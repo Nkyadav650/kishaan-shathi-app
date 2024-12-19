@@ -3,9 +3,9 @@ package com.kishan_shathi.dto;
 import lombok.Data;
 
 @Data
-public class UserEntityDto {
+public class UserDto {
 
-	private Long userId;
+	private String userId;
 	private String name;
 	private String password;
 	private String role;

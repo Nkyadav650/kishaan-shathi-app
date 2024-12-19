@@ -11,7 +11,7 @@ public class PaymentDto {
     private Double amount;    
     private PaymentStatus status;
     private String paymentMethod;
-    private ShellingRequestDto shellingRequestDto;
+    private Long shellingRequest;
 
 }
 

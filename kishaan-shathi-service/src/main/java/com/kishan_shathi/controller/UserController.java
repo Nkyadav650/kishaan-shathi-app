@@ -1,13 +1,11 @@
 package com.kishan_shathi.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,11 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kishan_shathi.commonresponse.CommonResponse;
 import com.kishan_shathi.config.OauthSuccessHandler;
-import com.kishan_shathi.dto.UserEntityDto;
+import com.kishan_shathi.dto.UserDto;
 import com.kishan_shathi.exception.InValidUserExcepption;
-import com.kishan_shathi.jwt.JwtService;
 import com.kishan_shathi.model.LoginRequest;
-import com.kishan_shathi.model.LoginResponse;
 import com.kishan_shathi.model.Response;
 import com.kishan_shathi.service.UserService;
 
@@ -41,7 +37,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/createUser")
-	public ResponseEntity<Response<Object>> saveUsers(@RequestBody UserEntityDto userEntityDto){
+	public ResponseEntity<Response<Object>> saveUsers(@RequestBody UserDto userEntityDto){
 		String result = userService.saveUsers(userEntityDto);
 		return new CommonResponse<>().prepareSuccessResponseObject(result, HttpStatus.CREATED);
 	}
