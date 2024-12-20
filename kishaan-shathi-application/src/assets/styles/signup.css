@@ -12,12 +12,12 @@
   }
   
   .sinup {
-    background-color: rgb(236, 250, 217)
+    background-color: transparent
     ; /* Optional: For visual distinction */
     padding: 40px;
     margin:10px 15px;
     border-radius: 10px;
-    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
+    /* box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6); */
 
   }
 
@@ -27,13 +27,30 @@
     flex-direction: column;
   }
   .sinup .inputGroup input{
-    margin-top: 2px;
+    /* margin-top: 2px; */
     padding: 8px;
-    border-radius: 5px;
+   
   }
   .sinup .inputGroup label{
     margin-top: 5px;
   }
   .loginbutton{
     color:blue
+  }
+  .error-display{
+    color: red;
+  }
+   
+  input {
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    border-radius: 4px;
+    transition: border-color 0.3s, border-width 0.3s; 
+  }
+  input:focus {
+    border-color: #28a745;
+    border-width: 3px;
+    outline: none;
   }
