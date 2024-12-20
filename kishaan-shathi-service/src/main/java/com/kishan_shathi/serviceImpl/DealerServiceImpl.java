@@ -11,9 +11,6 @@ import org.springframework.beans.BeanUtils;
 import com.kishan_shathi.service.DealerService;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 
 @Service
@@ -30,21 +27,6 @@ public class DealerServiceImpl implements DealerService {
 
     @Override
     public DealerDto saveDealer(DealerDto dealerDto) {
-//        Dealer dealer = new Dealer();
-//        try {
-//            BeanUtils.copyProperties(dealer, dealerDto);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        Dealer savedDealer = dealerRepository.save(dealer);
-//        DealerDto savedDealerDto = new DealerDto();
-//        try {
-//            BeanUtils.copyProperties(savedDealerDto, savedDealer);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return savedDealerDto;
-        dealerDto.setDealerId(generateUniqueId());
         Dealer dealer = new Dealer();
         BeanUtils.copyProperties(dealerDto, dealer);
         Dealer savedDealer = dealerRepository.save(dealer);
@@ -55,24 +37,6 @@ public class DealerServiceImpl implements DealerService {
 
     @Override
     public DealerDto updateDealer(String id, DealerDto dealerDto) {
-//        Optional<Dealer> existingDealer = dealerRepository.findById(String.valueOf(id));
-//        if (existingDealer.isPresent()) {
-//            Dealer dealer = existingDealer.get();
-//            try {
-//                BeanUtils.copyProperties(dealer, dealerDto);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//            Dealer updatedDealer = dealerRepository.save(dealer);
-//            DealerDto updatedDealerDto = new DealerDto();
-//            try {
-//                BeanUtils.copyProperties(updatedDealerDto, updatedDealer);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//            return updatedDealerDto;
-//        }
-//        throw new RuntimeException("Dealer not found with id: " + id);
         Dealer existingDealer = dealerRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Dealer not found with id: " + id));
 
@@ -90,15 +54,6 @@ public class DealerServiceImpl implements DealerService {
 
     @Override
     public DealerDto getDealerById(String id) {
-//        Dealer dealer = dealerRepository.findById(String.valueOf(id))
-//                .orElseThrow(() -> new RuntimeException("Dealer not found with id: " + id));
-//        DealerDto dealerDto = new DealerDto();
-//        try {
-//            BeanUtils.copyProperties(dealerDto, dealer);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return dealerDto;
         Dealer dealer = dealerRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Dealer not found with id: " + id));
         DealerDto dealerDto = new DealerDto();
@@ -108,28 +63,13 @@ public class DealerServiceImpl implements DealerService {
 
     @Override
     public List<DealerDto> getAllDealers() {
-//        log.info("Fetching all dealers from database");
-//        return dealerRepository.findAll().stream()
-//                .map(dealer -> {
-//                    DealerDto dealerDto = new DealerDto();
-//                    try {
-//                        BeanUtils.copyProperties(dealerDto, dealer);
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
-//                    return dealerDto;
-//                })
-//                .collect(Collectors.toList());
         return dealerRepository.findAll().stream()
                 .map(dealer -> {
                     DealerDto dealerDto = new DealerDto();
                     BeanUtils.copyProperties(dealer, dealerDto);
                     return dealerDto;
                 })
-                .collect(Collectors.toList());
+                .toList();
     }
 
-    private static String generateUniqueId() {
-        return UUID.randomUUID().toString().replaceAll("-", "").trim();
-    }
 }
