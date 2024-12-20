@@ -14,8 +14,11 @@ import com.kishan_shathi.dto.CropDto;
 import com.kishan_shathi.model.Response;
 import com.kishan_shathi.service.CropService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/crop")
+@Slf4j
 public class CropController {
 
 	private CropService cropService;
@@ -26,6 +29,7 @@ public class CropController {
 
 	@PostMapping("/add")
 	public ResponseEntity<Response<Object>> addCrop(@RequestBody CropDto cropDto) {
+		log.info("Crop Controller addCrop method entered.");
 		CropDto dto = cropService.addCrop(cropDto);
 		return new CommonResponse<>().prepareSuccessResponseObject(dto, HttpStatus.CREATED);
 	}
