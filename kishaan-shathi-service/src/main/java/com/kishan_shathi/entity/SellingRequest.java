@@ -13,15 +13,15 @@ import lombok.Data;
 @Data
 @Entity
 public class SellingRequest {
-	   
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long requestId;
-    private String cropType;
-    private Double quantity;
-    private Double cost; 
-    private RequestStatus status; // Enum for status
-    private String sellerId;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long requestId;
+	private String cropType;
+	private Double quantity;
+	private Double cost;
+	private RequestStatus status; // Enum for status
+	private String sellerId;
 	private String sellerName;
 	private Double pricePerUnit;
 	private String unit;
@@ -33,6 +33,6 @@ public class SellingRequest {
 	private String sellerContact;
 	private String harvestDate;
 	private Boolean isCertifiedOrganic;
-    private Date requestDate;
-    private Date expectedCompletionDate;
+	private Date requestDate;
+	private Date expectedCompletionDate;
 }

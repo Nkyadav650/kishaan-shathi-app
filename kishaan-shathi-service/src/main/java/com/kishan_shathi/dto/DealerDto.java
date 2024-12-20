@@ -1,17 +1,21 @@
 package com.kishan_shathi.dto;
 
-import java.util.List;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-
+@NoArgsConstructor
+@AllArgsConstructor
 public class DealerDto {
-    
-    private Long dealerId;
+
+
+    private String dealerId;
     private String name;
     private String email;
     private String phoneNumber;
     private String address;
+
 
 }
