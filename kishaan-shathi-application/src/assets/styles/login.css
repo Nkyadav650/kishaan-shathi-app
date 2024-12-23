@@ -1,0 +1,55 @@
+.login-container {
+  
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 5px; /* Optional: Adjust the gap between columns */
+    width: 100%; /* Ensure the container takes the full width */
+  }
+  
+  .one {
+    background-color: lightblue; /* Optional: For visual distinction */
+    padding: 10px;
+  }
+  
+  .login {
+    background-color: transparent; /* Optional: For visual distinction */
+    padding: 40px;
+    margin:10px 15px;
+    border-radius: 10px;
+     }
+
+  .login .inputGroup{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .login .inputGroup input{
+    margin-top: 10px;
+    padding: 8px;
+   
+  }
+  
+  .loginbutton{
+    color:blue
+  }
+
+  .inputGroup {
+    position: relative;
+    width: 100%;
+  }
+  
+  .inputGroup input {
+    width: 100%;
+    padding-right: 35px; /* Add padding to avoid overlapping with the icon */
+    box-sizing: border-box;
+  }
+  
+  .form-control-icon {
+    position: absolute;
+    right: 10px; /* Adjust spacing from the right edge of the input */
+    top: 65%;
+    transform: translateY(-50%);
+    color: rgba(117, 116, 116, 0.89); /* Optional: Adjust icon color */
+    pointer-events: none; /* Ensure the icon does not interfere with input focus */
+  }
+  

@@ -1,7 +1,7 @@
 import React from 'react'
 import '../assets/styles/base.css'
-import Footer from "./Footer";
-import Header from './Header';
+import Footer from "./footer";
+import Header from './header';
 
 const Base = ({children}) => {
   return (
