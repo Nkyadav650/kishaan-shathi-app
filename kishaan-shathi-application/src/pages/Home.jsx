@@ -15,8 +15,23 @@ const Home = () => {
         <button className='btn1'>Buyer</button>
         <button className='btn2'>Seller</button>
        </div>
-       <div>
-        <p>Additionally, the WebTransport API is expected to replace the WebSocket API for many applications. WebTransport is a versatile, low-level API that provides backpressure and many other features not supported by either WebSocket or WebSocketStream, such as unidirectional streams, out-of-order delivery, and unreliable data transmission via datagrams. WebTransport is more complex to use than WebSockets and its cross-browser support is not as wide, but it enables the implementation of sophisticated solutions. If standard WebSocket connections are a good fit for your use case and you need wide browser compatibility, you should employ the WebSockets API to get up and running quickly. However, if your application requires a non-standard custom solution, then you should use the WebTransport API.</p>
+       <div className='content'>
+        <p>
+        Kishaan Shathi is dedicated to uplifting farmers by providing innovative solutions and a comprehensive support system. From crop management to market access, we are here to assist you every step of the way. 
+        Our goal is to make agriculture profitable and rewarding for all.
+        </p>
+        <p>
+        Meet the farmers who have transformed their livelihoods with Kishaan Shathi. From small-scale growers to large-scale producers, their stories of success are a testament to the power of innovation and support.
+        </p>
+        <p>
+        Explore our extensive library of resources designed to educate and inform. Learn about sustainable farming, crop care techniques, and government subsidies to make informed decisions.
+        </p>
+        <p>
+        Stay ahead with the latest news in agriculture. From new government schemes to breakthroughs in farming technology, Kishaan Shathi keeps you informed and inspired.
+        </p>
+        <p>
+        Have questions? Need assistance? Reach out to our dedicated support team. Whether it’s technical help or farming advice, we’re here to serve you.
+        </p>
        </div>
       </div>
     </Base>
