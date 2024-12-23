@@ -54,4 +54,16 @@
     color: rgba(117, 116, 116, 0.89); /* Optional: Adjust icon color */
     pointer-events: none; /* Ensure the icon does not interfere with input focus */
   }
+
+  .signup-btn{
+    color: blue;
+    border: 0;
+    background-color: transparent;
+    margin-bottom: 10px;
+  }
+  input::placeholder {
+    color: #aaa;
+    font-size: 14px;
+    font-style: italic;
+  }
   

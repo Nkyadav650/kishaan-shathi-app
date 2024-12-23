@@ -44,12 +44,14 @@ public class UserController {
 	
 	@PostMapping("/manual/login")
 	public ResponseEntity<Response<Object>> manualLogin(@RequestBody LoginRequest login) throws InValidUserExcepption{
-		if (manager.authenticate(new UsernamePasswordAuthenticationToken(login.getUsername(),login.getPassword())).isAuthenticated()) {	
+		log.info("login controller entered");
+		if (manager.authenticate(new UsernamePasswordAuthenticationToken(login.getUsername(),login.getPassword())).isAuthenticated()) {
+			log.info("login controller if block  entered");
 			return new CommonResponse<>()
 					.prepareSuccessResponseObject(
 							userService.genarateJwtToken(login.getUsername()), HttpStatus.OK);
 		} else {
-			
+			log.info("else in logincontroller ");
 			throw new InValidUserExcepption("Invalid Credintials!!!");
 		}
 		
