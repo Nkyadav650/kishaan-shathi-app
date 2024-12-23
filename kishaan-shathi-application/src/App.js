@@ -1,6 +1,7 @@
 
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ToastContainer, } from 'react-toastify';
 import Home from './pages/Home';
