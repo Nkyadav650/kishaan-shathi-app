@@ -1,0 +1,41 @@
+.base-container {
+    display: flex;
+    flex-direction: column; 
+  }
+.btn{
+    margin-top: 18em;
+    display: flex;
+    justify-content: space-around;
+}
+.btn1,.btn2{
+    width: 200px;
+    height: 3em;
+    border: none;
+    color: black;
+    font-size: 20px;
+    border-radius: 10%;
+    cursor: pointer;
+}
+.btn1{
+    background-color: #8bc34a;
+    box-shadow: 0 8px 16px #9ccc65;
+}
+.btn2{
+    background-color: #cddc39;
+    box-shadow: 0 8px 16px #d4e157;
+}
+.btn1:hover {
+    transform: translateY(-5px); 
+    opacity: 0.9; 
+    border: 3px solid #8bc34a;
+    background-color: rgb(207, 247, 156);
+    box-shadow: none;
+}
+
+.btn2:hover {
+    transform: translateY(-5px); 
+    opacity: 0.9;
+    border: 3px solid #cddc39;
+    background-color: #f2fd8f;
+    box-shadow: none;
+}

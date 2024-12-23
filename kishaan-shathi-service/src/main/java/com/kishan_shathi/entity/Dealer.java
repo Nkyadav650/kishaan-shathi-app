@@ -8,6 +8,7 @@ import lombok.Data;
 @Entity
 public class Dealer {
     
+
     @Id
     private String dealerId;
     private String name;

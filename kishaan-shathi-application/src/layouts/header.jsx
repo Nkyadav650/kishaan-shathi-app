@@ -1,9 +1,10 @@
 import React from 'react'
+import '../assets/styles/Header.css'
 
 const header = () => {
   return (
-    <div>
-      
+    <div className='navbar'>
+     <p>this is header</p>
     </div>
   )
 }

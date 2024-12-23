@@ -1,10 +1,20 @@
 import React from 'react'
-
-const Base = () => {
+import '../assets/styles/base.css'
+import Footer from "./footer";
+import Header from './header';
+const Base = ({children}) => {
   return (
-    <div>
+   <div className='base-layout'>
+    
+       <Header/>
+   
+      <div className='children'>
+        {children}
+      </div>
+     
+       <Footer/>
       
-    </div>
+   </div>
   )
 }
 

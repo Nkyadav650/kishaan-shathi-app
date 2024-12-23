@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 @Entity
 public class Farmer {
+
 	@Id
 	private String farmerId;
 	private String name;
