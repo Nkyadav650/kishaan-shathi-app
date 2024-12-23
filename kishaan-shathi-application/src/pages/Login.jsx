@@ -5,13 +5,15 @@ import validate from '../utils/validations';
 import { loginApi } from '../utils/ApiServices';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { IoMdEye } from "react-icons/io";  //open eye
+import { IoIosEyeOff } from "react-icons/io";// close eye
 
 const Login = () => {
     const initialValues = { username: "", password: "" };
     const [formValues, setFormValues] = useState(initialValues);
     const [formErrors, setFormErrors] = useState({});
     const [errorMessage, setErrorMessage] = useState(null);
-    // const [isSubmit, setIsSubmit] = useState(false);
+    const [passwordVisible, setPasswordVisible] = useState(false);
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -19,15 +21,11 @@ const Login = () => {
         setFormValues({ ...formValues, [name]: value });
     };
 
-    const handleSignUpClick = () => {
-        navigate('/signup');
-    };
-
     // Handle form submission
     const handleSubmit = async (e) => {
 
         e.preventDefault();
-        setFormErrors(validate(formValues,'login'));
+        setFormErrors(validate(formValues, 'login'));
         console.log("inside handlesubmit")
 
         if (Object.keys(formErrors).length === 0) {
@@ -82,13 +80,17 @@ const Login = () => {
                     <div className="inputGroup">
 
                         <input
-                            type="password"
+                            type={passwordVisible ? "text" : "password"}
                             name="password"
                             id="password"
                             autoComplete="off"
                             placeholder="Enter Password"
                             onChange={handleChange}
                         />
+                        <span className='password-eye'
+                            onClick={() => setPasswordVisible(!passwordVisible)}>
+                            {passwordVisible ? <IoMdEye /> : <IoIosEyeOff />}
+                        </span>
 
                     </div>
                     <p className='error-display'>{formErrors.password}</p>
