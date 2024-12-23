@@ -51,6 +51,6 @@
   }
   input:focus {
     border-color: #28a745;
-    border-width: 3px;
+    border-width: 1px;
     outline: none;
   }
