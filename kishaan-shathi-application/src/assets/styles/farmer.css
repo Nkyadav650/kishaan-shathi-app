@@ -1,0 +1,102 @@
+/* Farmer Registration Form Styles */
+
+/* Style for the form container */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 8px;
+  
+    margin-right: 8px;
+    font-family: 'Roboto', sans-serif;
+   
+}
+  
+  /* Heading style */
+  .form-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  
+  /* General styling for input and textarea fields */
+  .input-group {
+    margin-bottom: 10px;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 8px;
+    margin: 1px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #fff;
+    transition: border 0.3s ease-in-out;
+  }
+  
+  .input-field:focus {
+    border-color: #28a745;
+    outline: none;
+  }
+ 
+  /* Placeholder style */
+  .input-field::placeholder {
+    color: #aaa;
+    font-size: 14px;
+    font-style: italic;
+  }
+  
+  /* Submit button style */
+  .submit-button {
+    width: 100%;
+    padding: 8px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+   
+  .submit-button:hover {
+    background-color: #218838;
+  }
+  
+  .submit-button:focus {
+    outline: none;
+  }
+  
+  /* Responsive row for city, state, pincode, and country */
+  .input-group-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .input-group-left,
+  .input-group-right {
+    width: 48%;
+  }
+  
+  @media (max-width: 500px) {
+    .input-group-left,
+    .input-group-right {
+      width: 100%;
+    }
+  
+    .input-group-row {
+      flex-direction: column;
+    }
+  
+    .submit-button {
+      font-size: 14px;
+    }
+  }
+  
+  

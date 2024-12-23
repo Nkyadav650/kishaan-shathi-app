@@ -9,12 +9,14 @@ const Login = () => {
 
 
         <div className='login-container'>
-            <div className='one'></div>
+            <div className='one'>
+            
+            </div>
             <div className='login'>
                 <h3 className='text-center'>LOG IN</h3>
                 <form className="addUserForm">
                     <div className="inputGroup">
-                        <label htmlFor="email">Email</label>
+
                         <input
                             type="text"
                             id="email"
@@ -25,7 +27,7 @@ const Login = () => {
                     </div>
 
                     <div className="inputGroup">
-                        <label htmlFor="password">Password</label>
+
                         <input
                             type="password"
                             id="password"

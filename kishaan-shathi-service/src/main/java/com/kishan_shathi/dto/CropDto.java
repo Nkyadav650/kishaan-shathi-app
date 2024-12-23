@@ -1,8 +1,12 @@
 package com.kishan_shathi.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CropDto {
 
 	private String cropId; // Unique identifier for the crop (e.g., SKU or reference code)
