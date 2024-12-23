@@ -50,7 +50,7 @@ public class SecurityConfig {
 
         		   .cors(cors->cors.configurationSource(corsConfigurationSource()))// CSRF is disabled here
 
-                .authorizeHttpRequests(req->req.requestMatchers("/user/**").permitAll()
+                .authorizeHttpRequests(req->req.requestMatchers("/user/**","/api/dealers/**","/api/farmers/**").permitAll()
                         .anyRequest().authenticated())
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(point))
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
@@ -79,6 +79,7 @@ public class SecurityConfig {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
+
     @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
