@@ -45,7 +45,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public LoginResponse genarateJwtToken(String email) {
+		log.info("login service entered along with email :{}",email);
 		String jwtToken = jwtService.genarateJwtToken(myUserDetailasService.loadUserByUsername(email));
+		log.info("genarated token is : {}",jwtToken);
 		String jwtRefreshToken = jwtService.genarateRefreshToken(myUserDetailasService.loadUserByUsername(email));
 		
 		return LoginResponse.builder()
