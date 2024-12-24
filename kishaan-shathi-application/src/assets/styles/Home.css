@@ -39,3 +39,12 @@
     background-color: #f2fd8f;
     box-shadow: none;
 }
+.content p{
+    text-align: justify;
+    font-size: 20px;
+   
+}
+.content{
+    margin: 40px;
+    gap: 0;
+}
