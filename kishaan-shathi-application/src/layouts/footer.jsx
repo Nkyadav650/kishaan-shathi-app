@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
-const footer = () => {
+const Footer = () => {
   return (
     <div>
 
@@ -129,4 +129,4 @@ const footer = () => {
   )
 }
 
-export default footer
+export default Footer

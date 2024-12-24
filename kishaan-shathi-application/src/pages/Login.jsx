@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import '../assets/styles/login.css'
 import validate from '../utils/validations';
-import { loginApi } from '../utils/ApiServices';
+import { loginApi } from '../service/ApiServices';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { IoMdEye } from "react-icons/io";  //open eye

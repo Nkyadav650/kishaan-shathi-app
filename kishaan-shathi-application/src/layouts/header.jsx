@@ -1,28 +1,39 @@
-import React from 'react'
-import '../assets/styles/Header.css'
+import React from 'react';
+import '../assets/styles/header.css'; // Add your custom styles
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-const header = () => {
+
+const Header = () => {
   return (
     <div>
-    <Navbar >
-      <Container>
-        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-        <Nav>
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
-        </Nav>
-      </Container>
-    </Navbar>
-    
-  </div>
+      <Navbar bg="success" variant="dark" expand="lg" fixed="top">
+        <Container>
+          <Navbar.Brand href="#home">FarmTrade</Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbar-nav" />
+          {/* Search Bar */}
+         
+          <input
+            type="search"
+            placeholder="Search"
+            className="search-bar"
+            italic-label="Search"
+          />
+         
+     
+          <Navbar.Collapse id="navbar-nav">
+            <Nav className="ms-auto">
+              <Nav.Link href="#home" icon='home' >Home</Nav.Link>
+              <Nav.Link href="#buy">Buy Crops</Nav.Link>
+              <Nav.Link href="#sell">Sell Crops</Nav.Link>
+              <Nav.Link href="#contact">Contact</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </div>
   );
 }
 
-export default header;
+export default Header;
