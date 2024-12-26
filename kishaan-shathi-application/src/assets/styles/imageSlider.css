@@ -1,5 +1,3 @@
-
-
   .imageSlider{
     overflow: hidden;
     position:absolute; 
@@ -12,7 +10,16 @@
  
     object-fit: fill;
     height: 15em;
-
+    outline: none !important;
+    border: none !important;
     width: 100%;
 }
 
+.imageSlider img:focus, 
+.imageSlider img:active {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+ 

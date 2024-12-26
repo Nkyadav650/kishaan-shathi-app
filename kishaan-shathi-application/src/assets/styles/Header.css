@@ -1,15 +1,26 @@
 .navbar{
-
-  
     backdrop-filter: blur(5px);
-
-    background-color: rgba(212 , 209, 209, 0.2);
-   
-
+    /* background-color: rgba(55, 226, 21, 0.2); */
+    background: linear-gradient(to right, #fd9c3c 20%, #eeeded 35%, #eeeded 65%, #35be29 80%);
     border-bottom: 2px solid white;
     height: 5em;
     position: fixed;
     top: 0;
     z-index: 10;
     width: 100%;
+   
+   
+   
+}
+.navbar-logo{
+    height: 4em;
+    width: 5em;
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+}
+.nav-link{
+    text-decoration-line: none;
+    font-family: cursive;
+    color: green;
 }

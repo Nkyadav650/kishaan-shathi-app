@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Farmer from './pages/Farmer';
 import Dealer from './pages/Dealer';
+import Notification from './components/Notification';
 function App() {
   return (
     <div className="App">
@@ -20,6 +21,7 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path='/farmer' element={<Farmer />} />
           <Route path='/dealer' element={<Dealer />} />
+          <Route path='/notification' element={<Notification/>} />
         </Routes>
       </BrowserRouter>
     </div>
