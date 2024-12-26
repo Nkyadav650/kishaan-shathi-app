@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import '../assets/styles/signup.css';
 import validate from '../utils/validations';
-import { saveStudentApi } from '../utils/ApiServices';
+import { saveStudentApi } from '../service/ApiServices';
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 
@@ -33,7 +33,7 @@ const Signup = () => {
                     if (response.data.status === 'SUCCESS' && response.data.statusCode === 201) {
                         console.log("Student saved successfully:", response.data);
                         toast.success("registration successfull")
-                        navigate("/login");
+                        navigate("/");
                     } else {
                         setErrorMessage("Registration failed. Please try again.");
                     }
@@ -116,7 +116,7 @@ const Signup = () => {
 
                 <div className='login d-flex justify-content-center p-0'>
                     <p className='mt-2'>Already have account?</p>
-                    <button type='submit' className='login-btn ' onClick={() => navigate('/login')}>login</button>
+                    <button type='submit' className='login-btn ' onClick={() => navigate('/')}>login</button>
 
                 </div>
                 {errorMessage && <p style={{ color: "red", marginTop: "20px" }}>{errorMessage}</p>}
