@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/styles/header.css'; // Add your custom styles
+import '../assets/styles/Header.css'; // Add your custom styles
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';

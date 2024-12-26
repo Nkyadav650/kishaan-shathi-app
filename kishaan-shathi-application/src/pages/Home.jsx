@@ -1,7 +1,7 @@
 import React from 'react'
 import Base from '../layouts/Base'
 import ImageSlider from '../components/ImageSlider'
-import '../assets/styles/home.css'
+import '../assets/styles/Home.css'
 
 
 const Home = () => {
