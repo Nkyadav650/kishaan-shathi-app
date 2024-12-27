@@ -1,112 +1,127 @@
-import React, { useEffect, useState } from 'react';
-import Base from '../layouts/Base'
-import '../assets/styles/dealer.css'
+import React, { useState } from "react";
+import Base from "../layouts/Base";
+import "../assets/styles/dealer.css";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import carousel1 from "../assets/images/carousel1.png";
+import carousel2 from "../assets/images/carousel2.jpg";
+import carousel3 from "../assets/images/carousel3.jpg";
 
 
 
 const Dealer = () => {
-
   const [formData, setFormData] = useState({
-    dealerId: 'F002',
-    name: '',
-    email: '',
-    phoneNumber: '',
-    address: ''
+    dealerId: "D001",
+    name: "",
+    email: "",
+    phoneNumber: "",
+    addressLine: "",
   });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
-   // Handle form submission
-   const handleSubmit = (e) => {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Farmer Registration Data:', formData);
-
-    // You can send this data to an API or server here
-
-    alert('Registration Successful!');
+    console.log("Dealer Registration Data:", formData);
+    alert("Registration Successful!");
   };
+
+  const carouselImages = [
+    carousel1,
+    carousel2,
+    carousel3,
+  ];
+
   return (
     <div>
       <Base>
-        <div className="form-container">
-          <h2>Dealer Registration</h2>
-          <form onSubmit={handleSubmit}>
-            {/* Farmer ID - Readonly */}
-            <div className="input-group">
-              <input
-                type="text"
-                name="dealerId"
-                value={formData.dealerId}
-                readOnly
-                className="input-field"
-                placeholder="Farmer ID"
-              />
-            </div>
+        <div className="dealer-container">
+          {/* Carousel Section */}
+          <div className="carousel-section">
+            <Carousel showThumbs={false} infiniteLoop autoPlay>
+              {carouselImages.map((image, index) => (
+                <div key={index}>
+                  <img src={image} alt={`Carousel Image ${index + 1}`} />
+                </div>
+              ))}
+            </Carousel>
+          </div>
 
-            {/* Name */}
-            <div className="input-group">
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Enter your name"
-                required
-                className="input-field"
-              />
-            </div>
-
-            {/* Email */}
-            <div className="input-group">
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Enter your email"
-                required
-                className="input-field"
-              />
-            </div>
-
-            {/* Phone Number */}
-            <div className="input-group">
-              <input
-                type="tel"
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                placeholder="Enter your phone number"
-                required
-                className="input-field"
-              />
-            </div>
-
-            {/* Address Line */}
-            <div className="input-group">
-              <input
-                type="text"
-                name="addressLine"
-                value={formData.addressLine}
-                onChange={handleChange}
-                placeholder="Enter address line"
-                required
-                className="input-field"
-              />
-            </div>
-            {/* Submit Button */}
-            <div>
-              <button type="submit" className="submit-button">Register</button>
-            </div>
-          </form>
+          {/* Dealer Registration Form Section */}
+          <div className="form-section">
+            <h2>Dealer Registration</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="input-group">
+                <input
+                  type="text"
+                  name="dealerId"
+                  value={formData.dealerId}
+                  readOnly
+                  className="input-field"
+                  placeholder="Dealer ID"
+                />
+              </div>
+              <div className="input-group">
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Enter your name"
+                  required
+                  className="input-field"
+                />
+              </div>
+              <div className="input-group">
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Enter your email"
+                  required
+                  className="input-field"
+                />
+              </div>
+              <div className="input-group">
+                <input
+                  type="tel"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
+                  placeholder="Enter your phone number"
+                  required
+                  className="input-field"
+                />
+              </div>
+              <div className="input-group">
+                <input
+                  type="text"
+                  name="addressLine"
+                  value={formData.addressLine}
+                  onChange={handleChange}
+                  placeholder="Enter address line"
+                  required
+                  className="input-field"
+                />
+              </div>
+              <div>
+                <button type="submit" className="submit-button">
+                  Register
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-        </Base>
+      </Base>
     </div>
-  )
-}
+  );
+};
 
-export default Dealer
+export default Dealer;

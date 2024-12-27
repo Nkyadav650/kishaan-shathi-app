@@ -1,205 +1,54 @@
-/* Farmer Registration Form Styles */
-
-/* Style for the form container */
-.form-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: flex-end;
-    background-color: transparent;
-    padding: 20px;
-    border-radius: 8px;
-  
-    margin-right: 8px;
-    font-family: 'Roboto', sans-serif;
-   
-}
-  
-  /* Heading style */
-  .form-container h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: 500;
-  }
-  
-  /* General styling for input and textarea fields */
-  .input-group {
-    margin-bottom: 10px;
-  }
-  
-  .input-field {
-    width: 100%;
-    padding: 8px;
-    margin: 1px 0;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 16px;
-    background-color: #fff;
-    transition: border 0.3s ease-in-out;
-  }
-  
-  .input-field:focus {
-    border-color: #28a745;
-    outline: none;
-  }
- 
-  /* Placeholder style */
-  .input-field::placeholder {
-    color: #aaa;
-    font-size: 14px;
-    font-style: italic;
-  }
-  
-  /* Submit button style */
-  .submit-button {
-    width: 100%;
-    padding: 8px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-   
-  .submit-button:hover {
-    background-color: #218838;
-  }
-  
-  .submit-button:focus {
-    outline: none;
-  }
-  
-  /* Responsive row for city, state, pincode, and country */
-  .input-group-row {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .input-group-left,
-  .input-group-right {
-    width: 48%;
-  }
-  
-  @media (max-width: 500px) {
-    .input-group-left,
-    .input-group-right {
-      width: 100%;
-    }
-  
-    .input-group-row {
-      flex-direction: column;
-    }
-  
-    .submit-button {
-      font-size: 14px;
-    }
-  }
-
-  /* our solution  */
-  
-.solutions-container {
+/* Container for the carousel and form */
+.dealer-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 5%;
-  margin-top: 40px;
-  padding: 0 20px;
-  text-align: center; 
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0px;
 }
 
-/* Each solution box */
-.solution-box {
-  background-color: #ffffff;
-  border: 2px solid #f0f0f0;
+/* Carousel section styling */
+.carousel-section {
+  flex: 1; /* Take up equal space */
+  max-width: 100%; /* Restrict carousel width */
+  height: 100%;
+}
+
+.carousel-section img {
+  width: 100%;
+  height: 450px;
+}
+
+/* Form section styling */
+.form-section {
+  flex: 1; /* Take up equal space */
+  max-width: 35%; /* Restrict form width */
+  background: #f9f9f9;
+  padding: 20px;
   border-radius: 10px;
-  width: 300px;
-  padding: 25px;
- margin: 10px 0px;
- 
-  text-align: left;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Hover effect for the box */
-.solution-box:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 6px 12px rgba(111, 252, 3, 0.15);
-}
-
-/* Title styling */
-.solution-box h3 {
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: #2c3e50;
+.input-group {
   margin-bottom: 15px;
-  text-align:center; /* Center the title */
 }
 
-/* Description styling */
-.solution-box p {
-  font-size: 1rem;
-  color: #7f8c8d;
-  line-height: 1.6;
-  margin-bottom: 15px;
-  text-align: justify; /* Align the text to the left */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-/* Add a subtle border to separate each solution box */
-.solution-box p:last-child {
-  margin-bottom: 0;
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 1024px) {
-  /* Flexbox layout for tablets */
-  .solutions-container {
-    justify-content: space-around;
-  }
+.submit-button:hover {
+  background: #0056b3;
 }
-
-@media (max-width: 768px) {
-  /* Stacking the boxes on mobile */
-  .solutions-container {
-    justify-content: center;
-  }
-
-  .solution-box {
-    width: 100%;
-    max-width: 350px; /* Ensuring the box doesn’t grow too wide */
-    padding: 15px; /* Adjust padding for mobile */
-  }
-
-  .solution-box h3 {
-    font-size: 1.4rem; /* Slightly smaller title */
-  }
-
-  .solution-box p {
-    font-size: 0.9rem; /* Smaller font size for mobile */
-  }
-}
-
-@media (max-width: 480px) {
-  /* Extra small screen responsiveness */
-  .solutions-container {
-    padding: 0 10px; /* Reduce padding for very small screens */
-  }
-
-  .solution-box {
-    width: 100%;
-    max-width: 100%; /* Full-width for smaller screens */
-    padding: 10px; /* Smaller padding for very small screens */
-  }
-
-  .solution-box h3 {
-    font-size: 1.2rem; /* Further reduce title size */
-  }
-
-  .solution-box p {
-    font-size: 0.85rem; /* Even smaller font size for small screens */
-  }
-}
-
-  

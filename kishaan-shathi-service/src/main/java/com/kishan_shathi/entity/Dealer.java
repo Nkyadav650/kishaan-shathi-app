@@ -19,4 +19,4 @@ public class Dealer {
 //    @OneToMany(mappedBy = "dealer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 //    private List<ShellingRequest> shellingRequests;
 
-}
+} 

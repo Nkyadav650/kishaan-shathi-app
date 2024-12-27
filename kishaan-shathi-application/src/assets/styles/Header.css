@@ -47,3 +47,17 @@ input[type="search"]::-webkit-search-cancel-button {
 .navbar .nav-item:hover {
   background-color: #020d6e;
 }
+
+
+
+.navbar-dark .navbar-nav .nav-link {
+  color: var(--text-color);
+}
+
+body.dark {
+  --text-color: #ffffff;
+}
+
+body {
+  --text-color: #000000;
+}
