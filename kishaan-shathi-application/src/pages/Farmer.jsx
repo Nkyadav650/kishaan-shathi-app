@@ -7,6 +7,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import carousel1 from "../assets/images/carousel1.png";
 import carousel2 from "../assets/images/carousel2.jpg";
 import carousel3 from "../assets/images/carousel3.jpg";
+import axios from "axios";
 
 const Farmer = () => {
   const [solutions, setSolutions] = useState([]);
@@ -24,6 +25,8 @@ const Farmer = () => {
     address: "",
   });
 
+  const [authToken, setAuthToken] = useState(""); 
+
   // Handle change in form input fields
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,13 +37,24 @@ const Farmer = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Farmer Registration Data:", formData);
-
-    // You can send this data to an API or server here
-
-    alert("Registration Successful!");
+    try {
+      const headers = {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${authToken}`, 
+      };
+      const response = await axios.post(
+        "http://localhost:2024/api/farmers/save",
+        formData,
+        { headers }
+      );
+      console.log("Response:", response.data);
+      alert("Registration Successful!");
+    } catch (error) {
+      console.error("Error saving farmer data:", error.response?.data || error.message);
+      alert("Failed to save farmer data. Please try again.");
+    }
   };
 
   const carouselImages = [carousel1, carousel2, carousel3];
