@@ -1,10 +1,10 @@
 import React from 'react'
-
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
-const footer = () => {
+
+const Footer = () => {
+  const products = process.env.REACT_APP_PRODUCT ? process.env.REACT_APP_PRODUCT.split(',') : [];
   return (
     <div>
-
       <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
         <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
           <div className='me-5 d-none d-lg-block'>
@@ -12,22 +12,23 @@ const footer = () => {
           </div>
 
           <div>
-            <a href='' className='me-4 text-reset'>
+            {/* Social Media Links */}
+            <a href={process.env.REACT_APP_FACEBOOK_URL} className='me-4 text-reset'>
               <MDBIcon color='secondary' fab icon='facebook-f' />
             </a>
-            <a href='' className='me-4 text-reset'>
+            <a href={process.env.REACT_APP_TWITTER_URL} className='me-4 text-reset'>
               <MDBIcon color='secondary' fab icon='twitter' />
             </a>
-            <a href='' className='me-4 text-reset'>
+            <a href={process.env.REACT_APP_GOOGLE_URL} className='me-4 text-reset'>
               <MDBIcon color='secondary' fab icon='google' />
             </a>
-            <a href='' className='me-4 text-reset'>
+            <a href={process.env.REACT_APP_INSTAGRAM_URL} className='me-4 text-reset'>
               <MDBIcon color='secondary' fab icon='instagram' />
             </a>
-            <a href='' className='me-4 text-reset'>
+            <a href={process.env.REACT_APP_LINKEDIN_URL} className='me-4 text-reset'>
               <MDBIcon color='secondary' fab icon='linkedin' />
             </a>
-            <a href='' className='me-4 text-reset'>
+            <a href={process.env.REACT_APP_GITHUB_URL} className='me-4 text-reset'>
               <MDBIcon color='secondary' fab icon='github' />
             </a>
           </div>
@@ -39,11 +40,10 @@ const footer = () => {
               <MDBCol md='3' lg='4' xl='3' className='mx-auto mb-4'>
                 <h6 className='text-uppercase fw-bold mb-4'>
                   <MDBIcon color='secondary' icon='gem' className='me-3' />
-                  Company name
+                  {process.env.REACT_APP_COMPANY_NAME}
                 </h6>
                 <p>
-                  Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit
-                  amet, consectetur adipisicing elit.
+                  {process.env.REACT_APP_COMPANY_DESC}
                 </p>
               </MDBCol>
 
@@ -51,22 +51,22 @@ const footer = () => {
                 <h6 className='text-uppercase fw-bold mb-4'>Products</h6>
                 <p>
                   <a href='#!' className='text-reset'>
-                    Angular
+                    {products[0]}
                   </a>
                 </p>
                 <p>
                   <a href='#!' className='text-reset'>
-                    React
+                  {products[1]}
                   </a>
                 </p>
                 <p>
                   <a href='#!' className='text-reset'>
-                    Vue
+                  {products[2]}
                   </a>
                 </p>
                 <p>
                   <a href='#!' className='text-reset'>
-                    Laravel
+                  {products[3]}
                   </a>
                 </p>
               </MDBCol>
@@ -99,17 +99,19 @@ const footer = () => {
                 <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
                 <p>
                   <MDBIcon color='secondary' icon='home' className='me-2' />
-                  New York, NY 10012, US
+                  {process.env.REACT_APP_CONTACT_ADDRESS}
                 </p>
                 <p>
                   <MDBIcon color='secondary' icon='envelope' className='me-3' />
-                  info@example.com
+                  {process.env.REACT_APP_CONTACT_EMAIL}
                 </p>
                 <p>
-                  <MDBIcon color='secondary' icon='phone' className='me-3' /> + 01 234 567 88
+                  <MDBIcon color='secondary' icon='phone' className='me-3' />
+                  {process.env.REACT_APP_CONTACT_PHONE}
                 </p>
                 <p>
-                  <MDBIcon color='secondary' icon='print' className='me-3' /> + 01 234 567 89
+                  <MDBIcon color='secondary' icon='print' className='me-3' />
+                  {process.env.REACT_APP_CONTACT_FAX}
                 </p>
               </MDBCol>
             </MDBRow>
@@ -117,17 +119,14 @@ const footer = () => {
         </section>
 
         <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-          © 2021 Copyright:
+          © {process.env.REACT_APP_COPYRIGHT_YEAR} Copyright:
           <a className='text-reset fw-bold' href='https://mdbootstrap.com/'>
-            MDBootstrap.com
+            KishaanShathi.com
           </a>
         </div>
       </MDBFooter>
-
-
-
     </div>
   )
 }
 
-export default footer
+export default Footer;

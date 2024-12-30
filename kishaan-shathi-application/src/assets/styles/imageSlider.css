@@ -3,15 +3,24 @@
     position:absolute; 
     height: 15em;
     width: 100%;
+    border: none;
     z-index: 1;
   }
-  
+  .imageSlider img:focus, 
+.imageSlider img:active {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
   .imageSlider img {
  
     object-fit: fill;
     height: 15em;
+
     outline: none !important;
     border: none !important;
+
+
     width: 100%;
 }
 

@@ -9,7 +9,12 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Farmer from './pages/Farmer';
 import Dealer from './pages/Dealer';
+
 import Notification from './components/Notification';
+
+import About from './pages/About';
+import Notifications from './pages/Notifications';
+
 function App() {
   return (
     <div className="App">
@@ -21,7 +26,11 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path='/farmer' element={<Farmer />} />
           <Route path='/dealer' element={<Dealer />} />
+
           <Route path='/notification' element={<Notification/>} />
+          <Route path='/noti' element={<Notifications/>}/>
+          <Route path='/about' element={<About />} />
+
         </Routes>
       </BrowserRouter>
     </div>

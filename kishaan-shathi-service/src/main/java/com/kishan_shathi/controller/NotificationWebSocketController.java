@@ -9,7 +9,9 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class NotificationWebSocketController {
-    private final WebSocketNotificationService webSocketNotificationService;
+
+    @Autowired
+    WebSocketNotificationService webSocketNotificationService;
 
     @Autowired
     public NotificationWebSocketController(WebSocketNotificationService webSocketNotificationService) {

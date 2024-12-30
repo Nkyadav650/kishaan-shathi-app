@@ -1,26 +1,49 @@
-.navbar{
-    backdrop-filter: blur(5px);
-    /* background-color: rgba(55, 226, 21, 0.2); */
-    background: linear-gradient(to right, #fd9c3c 20%, #eeeded 35%, #eeeded 65%, #35be29 80%);
-    border-bottom: 2px solid white;
-    height: 5em;
-    position: fixed;
-    top: 0;
-    z-index: 10;
-    width: 100%;
-   
-   
-   
+.navbar {
+  background: linear-gradient(-45deg, 
+    #35be29 0%,   /* Saffron: Starts at 0% */
+    #35be29 35%,  /* Saffron: Ends at 40% */
+    #eeeded 40%,  /* White: Starts at 40% */
+    #eeeded 70%,  /* White: Ends at 60% */
+    #fd9c3c 75%,  /* Green: Starts at 60% */
+    #fd9c3c 100%  /* Green: Ends at 100% */
+  );
 }
-.navbar-logo{
-    height: 4em;
-    width: 5em;
-    margin: 0;
-    padding: 0;
-    object-fit: contain;
+.navbar .navbar-expand-lg .navbar-light{
+  padding:0px;
 }
-.nav-link{
-    text-decoration-line: none;
-    font-family: cursive;
-    color: green;
+/* Hide the search cancel button in search field */
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
 }
+
+/* Style for the search bar */
+.search-bar {
+  margin-left: 240px;
+  padding: 5px;
+  width: 300px;
+  background-color: transparent;
+  /* Ensures it stays in place */
+  flex-shrink: 0; /* Prevents shrinking */
+}
+
+/* Ensure navbar items are aligned to the right */
+#navbar-nav {
+  display: flex;
+  justify-content: flex-end;  /* Align nav links to the right */
+  width: 100%; /* Ensure the navbar occupies full width */
+}
+
+.navbar .nav-link {
+  font-size: 1.1rem;
+  color: white !important;
+}
+
+.navbar .nav-link:hover {
+  color: #020d6e !important; /* Golden accent color on hover */
+}
+
+/* Dropdown Styling for nav items */
+.navbar .nav-item:hover {
+  background-color: #020d6e;
+}
+

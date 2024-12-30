@@ -6,9 +6,7 @@ import Header from './header';
 const Base = ({children}) => {
   return (
    <div className='base-layout'>
-    
        <Header/>
-   
       <div className='children'>
         {children}
       </div>

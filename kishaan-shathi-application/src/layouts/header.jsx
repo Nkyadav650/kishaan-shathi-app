@@ -1,35 +1,50 @@
-import React from 'react'
-import '../assets/styles/Header.css'
+
+
+
+import React from 'react';
+import '../assets/styles/Header.css'; // Add your custom styles
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 import logo from '../assets/images/logo.jpg'
-import { Grid } from '@mui/material';
-import { Link } from 'react-router-dom';
-// import Container from 'react-bootstrap/Container';
-// import Nav from 'react-bootstrap/Nav';
-// import Navbar from 'react-bootstrap/Navbar';
 
-const header = () => {
+
+
+const Header = () => {
   return (
-    <div className='navbar'>
-      <Grid container alignItems='center' spacing={2}>
-        <Grid item xs={8}>
-        <img src={logo} alt='not-found' className='navbar-logo'></img>
-        </Grid>
-        <Grid item xs={4} gap='40px' display='flex'>
-          <Link className='nav-link' to='/home'>Home</Link>
+
+    <div>
+      <Navbar bg="success" variant="dark" expand="lg" fixed="top">
+
+      <img src={logo} alt='not-found' width='50px' height='40px' style={{objectFit:'contain'}}></img>
+        <Container  className="d-flex justify-content-between">
+          <Navbar.Brand href="#home">FarmTrade</Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbar-nav" />
+          {/* Search Bar */}
          
-          <Link className='nav-link' to='/features'>Features</Link>
-          <Link className='nav-link' to='/price'>Pricing</Link>
-          <Link className='nav-link' to='/price'>Pricing</Link>
-    
-        </Grid>
-      </Grid>
+          <input
+            type="search"
+            placeholder="Search"
+            className="search-bar"
+            italic-label="Search"
+          />
+         
+     
+          <Navbar.Collapse >
+            <Nav id="navbar-nav">
+            <Nav.Link href="#home" icon='home' >Home</Nav.Link>
+            <Nav.Link href="#buy">About</Nav.Link>
+            <Nav.Link href="#sell">Service</Nav.Link>
+            <Nav.Link href="#contact">Contact</Nav.Link>
+            <Nav.Link href="#contact">Profile</Nav.Link>
+            <Nav.Link href="#contact">LogOut</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </div>
 
-
-    
-    
-  
-  </div>
   );
 }
 
-export default header;
+export default Header;
