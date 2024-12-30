@@ -10,9 +10,7 @@ const Base = ({children}) => {
       <div className='children'>
         {children}
       </div>
-     
-       <Footer/>
-      
+       <Footer/>  
    </div>
   )
 }
