@@ -1,11 +1,12 @@
 import React from 'react'
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
+import '../assets/styles/Footer.css';
 
 const Footer = () => {
   const products = process.env.REACT_APP_PRODUCT ? process.env.REACT_APP_PRODUCT.split(',') : [];
   return (
     <div>
-      <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
+      <MDBFooter >
         <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
           <div className='me-5 d-none d-lg-block'>
             <span>Get connected with us on social networks:</span>

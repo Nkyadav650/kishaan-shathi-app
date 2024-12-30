@@ -18,14 +18,18 @@ const Farmer = () => {
   }, []);
   // Initialize state for form fields
   const [formData, setFormData] = useState({
-    farmerId: "F002",
+    farmerId: "F003",
     name: "",
     email: "",
     phoneNumber: "",
-    address: "",
+    addressLine: "",
+    city: "",
+    state: "",
+    pincode: "",
+    country: "",
   });
 
-  const [authToken, setAuthToken] = useState(""); 
+  //const [authToken, setAuthToken] = useState("");
 
   // Handle change in form input fields
   const handleChange = (e) => {
@@ -36,26 +40,56 @@ const Farmer = () => {
     }));
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Fetch the token from localStorage
+      const authToken = localStorage.getItem("jwtToken");
+      console.log("authentication token : "+authToken)
+  
+      // Check if the token exists
+      if (!authToken || authToken === "undefined") {
+        alert("Authentication token is missing. Please log in again.");
+        return;
+      }
+  
+      // Combining address fields into a single string
+      const fullAddress = `${formData.addressLine}, ${formData.city}, ${formData.state}, ${formData.pincode}, ${formData.country}`;
+  
+      const payload = {
+        farmerId: formData.farmerId,
+        name: formData.name,
+        email: formData.email,
+        phoneNumber: formData.phoneNumber,
+        address: fullAddress, // Passing the combined address here
+      };
+  
       const headers = {
         "Content-Type": "application/json",
         Authorization: `Bearer ${authToken}`, 
       };
+  
       const response = await axios.post(
         "http://localhost:2024/api/farmers/save",
-        formData,
+        payload,
         { headers }
       );
+  
       console.log("Response:", response.data);
       alert("Registration Successful!");
     } catch (error) {
-      console.error("Error saving farmer data:", error.response?.data || error.message);
+      console.error(
+        "Error saving farmer data:",
+        error.response?.data || error.message
+      );
       alert("Failed to save farmer data. Please try again.");
     }
   };
+  
+
+
+
+
 
   const carouselImages = [carousel1, carousel2, carousel3];
 
@@ -131,7 +165,7 @@ const Farmer = () => {
               <div className="input-group">
                 <input
                   type="text"
-                  name="addressLine"
+                  name="addressLine" // Match this with the key in formData
                   value={formData.addressLine}
                   onChange={handleChange}
                   placeholder="Enter address line"
