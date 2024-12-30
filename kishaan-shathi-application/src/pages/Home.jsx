@@ -1,7 +1,7 @@
 import React from 'react'
 import Base from '../layouts/Base'
 import ImageSlider from '../components/ImageSlider'
-import '../assets/styles/home.css'
+import '../assets/styles/Home.css'
 
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
         <div>
           <ImageSlider />
         </div>
-        <div className='btn'>
+        <div className='button-tag'>
           <button className='btn1'>Farmer</button>
           <button className='btn2'>Dealer</button>
         </div>
