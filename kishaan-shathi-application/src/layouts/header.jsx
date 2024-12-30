@@ -1,3 +1,6 @@
+
+
+
 import React from 'react';
 import '../assets/styles/Header.css'; // Add your custom styles
 import Container from 'react-bootstrap/Container';
@@ -13,9 +16,11 @@ import {
 
 
 
+
 const Header = () => {
   const { toggleTheme, darkMode } = useThemeContext();
   return (
+
     <div>
       <Navbar bg="success" variant="dark" expand="lg" fixed="top">
 
@@ -50,6 +55,7 @@ const Header = () => {
         </Container>
       </Navbar>
     </div>
+
   );
 }
 

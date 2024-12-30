@@ -10,20 +10,30 @@ import Farmer from "./pages/Farmer";
 import Dealer from "./pages/Dealer";
 import About from "./pages/About";
 
+
+import Notification from './components/Notification';
+
+
 function App() {
   return (
     <div className="App">
-        <BrowserRouter>
-          <ToastContainer />
-          <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/farmer" element={<Farmer />} />
-            <Route path="/dealer" element={<Dealer />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
-        </BrowserRouter>
+      <BrowserRouter>
+        <ToastContainer />
+        <Routes>
+          <Route path='/home' element={<Home />} />
+          <Route path='/' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/farmer' element={<Farmer />} />
+          <Route path='/dealer' element={<Dealer />} />
+
+          <Route path='/notification' element={<Notification/>} />
+          <Route path='/noti' element={<Notifications/>}/>
+          <Route path='/about' element={<About />} />
+
+        </Routes>
+      </BrowserRouter>
+
+
     </div>
   );
 }

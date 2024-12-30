@@ -30,6 +30,7 @@ const ImageSlider = () => {
             <img
               src={image}
               alt={`slide-${index}`}
+              style={{ outline: 'none', border: 'none' }}
             />
           </div>
         ))}
