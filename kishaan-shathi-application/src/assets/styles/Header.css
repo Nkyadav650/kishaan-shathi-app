@@ -1,4 +1,3 @@
-/* Apply a gradient background to the navbar */
 .navbar {
   background: linear-gradient(-45deg, 
     #35be29 0%,   /* Saffron: Starts at 0% */
@@ -49,7 +48,6 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 
-
 .navbar-dark .navbar-nav .nav-link {
   color: var(--text-color);
 }
@@ -61,3 +59,4 @@ body.dark {
 body {
   --text-color: #000000;
 }
+
