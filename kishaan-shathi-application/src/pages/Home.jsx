@@ -11,7 +11,7 @@ const Home = () => {
         <div>
           <ImageSlider />
         </div>
-        <div className='btn'>
+        <div className='button-tag'>
           <button className='btn1'>Farmer</button>
           <button className='btn2'>Dealer</button>
         </div>

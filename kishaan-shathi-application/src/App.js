@@ -1,19 +1,18 @@
+import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Farmer from "./pages/Farmer";
+import Dealer from "./pages/Dealer";
+import About from "./pages/About";
 
-import './App.css';
-import 'react-toastify/dist/ReactToastify.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ToastContainer, } from 'react-toastify';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import Farmer from './pages/Farmer';
-import Dealer from './pages/Dealer';
 
 import Notification from './components/Notification';
 
-import About from './pages/About';
-import Notifications from './pages/Notifications';
 
 function App() {
   return (
@@ -33,6 +32,8 @@ function App() {
 
         </Routes>
       </BrowserRouter>
+
+
     </div>
   );
 }
