@@ -50,7 +50,7 @@ public class SecurityConfig {
 
         		   .cors(cors->cors.configurationSource(corsConfigurationSource()))// CSRF is disabled here
 
-                .authorizeHttpRequests(req->req.requestMatchers("/user/**","/api/dealers/**").permitAll()
+                .authorizeHttpRequests(req->req.requestMatchers("/user/manual/login","/api/dealers/**").permitAll()
                         .anyRequest().authenticated())
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(point))
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
