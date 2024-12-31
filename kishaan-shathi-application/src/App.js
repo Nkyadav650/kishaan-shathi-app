@@ -9,8 +9,7 @@ import Signup from "./pages/Signup";
 import Farmer from "./pages/Farmer";
 import Dealer from "./pages/Dealer";
 import About from "./pages/About";
-
-
+import Notifications from './pages/Notifications'
 import Notification from './components/Notification';
 
 

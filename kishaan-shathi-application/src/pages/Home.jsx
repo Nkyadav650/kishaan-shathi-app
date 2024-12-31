@@ -1,10 +1,13 @@
 import React from 'react'
 import Base from '../layouts/Base'
 import ImageSlider from '../components/ImageSlider'
+import { useNavigate } from 'react-router-dom';
 import '../assets/styles/Home.css'
 
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <Base>
       <div className='base-container'>
@@ -12,8 +15,8 @@ const Home = () => {
           <ImageSlider />
         </div>
         <div className='button-tag'>
-          <button className='btn1'>Farmer</button>
-          <button className='btn2'>Dealer</button>
+          <button className='btn1' onClick={() => navigate('/farmer')}>Farmer</button>
+          <button className='btn2' onClick={() => navigate('/dealer')}>Dealer</button>
         </div>
 
 
