@@ -26,6 +26,21 @@ const Notification = () => {
         };
     }, []);
 
+
+    const socket = new WebSocket('ws://localhost:3000/ws/776/dlapvyqs/websocket');
+socket.onopen = function(event) {
+  console.log("WebSocket connected!");
+};
+socket.onmessage = function(event) {
+  console.log("Message from server:", event.data);
+};
+socket.onerror = function(error) {
+  console.log("WebSocket Error:", error);
+};
+socket.onclose = function(event) {
+  console.log("WebSocket connection closed:", event);
+};
+
     const sendNotification = () => {
         if (stompClient) {
             const notification = {
@@ -36,7 +51,7 @@ const Notification = () => {
                 dateCreated: new Date(),
             };
             stompClient.publish({
-                destination: '/app/sendNotification',
+                destination: '/sendNotification',
                 body: JSON.stringify(notification),
             });
         }
