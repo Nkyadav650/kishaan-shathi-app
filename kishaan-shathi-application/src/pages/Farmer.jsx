@@ -8,6 +8,7 @@ import carousel1 from "../assets/images/carousel1.png";
 import carousel2 from "../assets/images/carousel2.jpg";
 import carousel3 from "../assets/images/carousel3.jpg";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Farmer = () => {
   const [solutions, setSolutions] = useState([]);
@@ -49,7 +50,7 @@ const Farmer = () => {
   
       // Check if the token exists
       if (!authToken || authToken === "undefined") {
-        alert("Authentication token is missing. Please log in again.");
+        toast.error("Authentication token is missing. Please log in again.");
         return;
       }
   
@@ -74,23 +75,17 @@ const Farmer = () => {
         payload,
         { headers }
       );
-  
+      toast.success("Registration Successful!");
       console.log("Response:", response.data);
-      alert("Registration Successful!");
     } catch (error) {
       console.error(
         "Error saving farmer data:",
         error.response?.data || error.message
       );
-      alert("Failed to save farmer data. Please try again.");
+      toast.error("Failed to save farmer data. Please try again.");
     }
   };
   
-
-
-
-
-
   const carouselImages = [carousel1, carousel2, carousel3];
 
   return (

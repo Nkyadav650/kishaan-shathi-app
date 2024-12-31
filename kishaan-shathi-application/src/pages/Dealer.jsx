@@ -7,6 +7,7 @@ import carousel1 from "../assets/images/carousel1.png";
 import carousel2 from "../assets/images/carousel2.jpg";
 import carousel3 from "../assets/images/carousel3.jpg";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 
 const Dealer = () => {
@@ -35,7 +36,7 @@ const Dealer = () => {
 
       // Check if the token exists
       if (!authToken || authToken === "undefined") {
-        alert("Authentication token is missing. Please log in again.");
+        toast.error("Authentication token is missing. Please log in again.");
         return;
       }
 
@@ -63,13 +64,13 @@ const Dealer = () => {
       );
 
       console.log("Response:", response.data);
-      alert("Dealer Registration Successful!");
+      toast.success("Dealer Registration Successful!");
     } catch (error) {
       console.error(
         "Error saving dealer data:",
         error.response?.data || error.message
       );
-      alert("Failed to save dealer data. Please try again.");
+      toast.error("Failed to save dealer data. Please try again.");
     }
   };
 
