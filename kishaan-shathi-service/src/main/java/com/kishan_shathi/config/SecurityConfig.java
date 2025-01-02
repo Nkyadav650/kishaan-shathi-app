@@ -50,7 +50,8 @@ public class SecurityConfig {
 
         		   .cors(cors->cors.configurationSource(corsConfigurationSource()))// CSRF is disabled here
 
-                .authorizeHttpRequests(req->req.requestMatchers("/user/**","/api/dealers/**","/ws/**").permitAll()
+                .authorizeHttpRequests(req->
+                        req.requestMatchers("/user/**","/api/dealers/**","/ws/**").permitAll()
                         .anyRequest().authenticated())
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(point))
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
@@ -71,7 +72,7 @@ public class SecurityConfig {
 
     UrlBasedCorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000/","http://10.0.0.97:3000/"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000/","http://10.0.0.97:3000/","/ws/**"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);

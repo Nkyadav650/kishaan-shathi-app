@@ -1,5 +1,6 @@
 package com.kishan_shathi.controller;
 
+import com.kishan_shathi.dto.NotificationDto;
 import com.kishan_shathi.entity.Notification;
 import com.kishan_shathi.service.NotificationService;
 import lombok.extern.slf4j.Slf4j;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Slf4j
@@ -31,11 +33,20 @@ public class NotificationController {
         );
     }
 
-    @GetMapping("/{userId}")
-    public List<Notification> getNotifications(@PathVariable String userId) {
-        return notificationService.getNotificationsByUserId(userId);
-    }
 
+    @GetMapping("/{userId}")
+    public List<NotificationDto> getNotifications(@PathVariable String userId) {
+        return notificationService.getNotificationsByUserId(userId).stream()
+                .map(notification -> new NotificationDto(
+                        notification.getNotificationId(),
+                        notification.getMessage(),
+                        notification.getNotificationType(),
+                        notification.getUserId(),
+                        notification.isRead(),
+                        notification.getDateCreated()
+                ))
+                .collect(Collectors.toList());
+    }
     @PutMapping("/{notificationId}/read")
     public void markAsRead(@PathVariable Long notificationId) {
         notificationService.markAsRead(notificationId);
