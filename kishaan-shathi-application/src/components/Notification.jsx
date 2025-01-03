@@ -94,6 +94,7 @@ const Notification = () => {
                 console.log('Connected to WebSocket');
                 client.subscribe('/topic/notifications', (message) => {
                     const notification = JSON.parse(message.body);
+                    console.log('Received notification:', notification);
                     setNotifications((prev) => [...prev, notification]);
                 });
             },
