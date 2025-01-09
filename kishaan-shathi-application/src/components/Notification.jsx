@@ -54,7 +54,7 @@ const Notification = () => {
             const notification = {
                 message,
                 notificationType: "Broadcast",
-                userId: null, // Not needed for broadcast
+                // userId: null, 
                 isRead: false,
                 dateCreated: new Date(),
             };

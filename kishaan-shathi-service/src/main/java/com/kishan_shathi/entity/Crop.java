@@ -28,4 +28,6 @@ public class Crop {
 	private String soilType;
 	private String irrigationType;
 	private String description;
+
+
 }
