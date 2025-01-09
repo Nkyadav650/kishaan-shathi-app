@@ -1,18 +1,22 @@
-import React,{useEffect,useState} from 'react'
+import React, { useEffect, useState } from 'react';
 import SockJS from 'sockjs-client';
 import { Client } from '@stomp/stompjs';
+
 const Notification = () => {
     const [notifications, setNotifications] = useState([]);
     const [stompClient, setStompClient] = useState(null);
+    const [userId, setUserId] = useState(''); // State for user ID input
+    const [message, setMessage] = useState(''); // State for notification message
 
     useEffect(() => {
-        const socket = new SockJS('/ws');
         const client = new Client({
-            webSocketFactory: () => socket,
+            webSocketFactory: () => new SockJS('http://localhost:2024/ws'),
+            reconnectDelay: 5000,
             onConnect: () => {
                 console.log('Connected to WebSocket');
                 client.subscribe('/topic/notifications', (message) => {
                     const notification = JSON.parse(message.body);
+                    console.log('Received notification:', notification);
                     setNotifications((prev) => [...prev, notification]);
                 });
             },
@@ -26,19 +30,41 @@ const Notification = () => {
         };
     }, []);
 
-    const sendNotification = () => {
-        if (stompClient) {
+    const sendNotificationToUser = () => {
+        if (stompClient && userId && message) {
             const notification = {
-                message: "New shelling request status",
-                notificationType: "Status Update",
-                userId: "456",
+                message,
+                notificationType: "User Specific",
+                userId,
                 isRead: false,
                 dateCreated: new Date(),
             };
             stompClient.publish({
-                destination: '/app/sendNotification',
+                destination: `/app/sendNotification`,
                 body: JSON.stringify(notification),
             });
+            console.log(`Notification sent to user with ID: ${userId}`);
+        } else {
+            alert('Please enter a user ID and message.');
+        }
+    };
+
+    const sendNotificationToAll = () => {
+        if (stompClient && message) {
+            const notification = {
+                message,
+                notificationType: "Broadcast",
+                // userId: null, 
+                isRead: false,
+                dateCreated: new Date(),
+            };
+            stompClient.publish({
+                destination: `/app/sendToAll`,
+                body: JSON.stringify(notification),
+            });
+            console.log('Notification sent to all users.');
+        } else {
+            alert('Please enter a message to broadcast.');
         }
     };
 
@@ -50,9 +76,24 @@ const Notification = () => {
                     <li key={index}>{notification.message}</li>
                 ))}
             </ul>
-            <button onClick={sendNotification}>Send Notification</button>
+            <div>
+                <input
+                    type="text"
+                    placeholder="Enter user ID"
+                    value={userId}
+                    onChange={(e) => setUserId(e.target.value)}
+                />
+                <input
+                    type="text"
+                    placeholder="Enter message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                />
+                <button onClick={sendNotificationToUser}>Send Notification to User</button>
+                <button onClick={sendNotificationToAll}>Send Notification to All</button>
+            </div>
         </div>
     );
-}
+};
 
-export default Notification
+export default Notification;

@@ -39,6 +39,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 		log.info("jwtauthentication filter entered");
 
 		try {
+			String requestURI = request.getRequestURI();
+			if (requestURI.startsWith("/ws")) { // Skip WebSocket handshake paths
+				filterChain.doFilter(request, response);
+				return;
+			}
 			String header = request.getHeader("Authorization");
 			if (header == null || !header.startsWith("Bearer ")) {
 				filterChain.doFilter(request, response);
@@ -81,5 +86,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
 	}
 
+
+
+	@Override
+	protected boolean shouldNotFilter(HttpServletRequest request) {
+		String upgradeHeader = request.getHeader("Upgrade");
+		return "websocket".equalsIgnoreCase(upgradeHeader) || request.getServletPath().startsWith("/ws");
+	}
 
 }
