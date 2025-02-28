@@ -3,6 +3,7 @@ package com.kishan_shathi.serviceImpl;
 import com.kishan_shathi.entity.Notification;
 import com.kishan_shathi.repository.NotificationRepository;
 import com.kishan_shathi.service.NotificationService;
+import com.kishan_shathi.service.WebSocketNotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +12,16 @@ import java.util.List;
 
 @Service
 public class NotificationServiceImpl implements NotificationService {
+
     private final NotificationRepository notificationRepository;
 
+    private final WebSocketNotificationService webSocketNotificationService;
+
+
     @Autowired
-    public NotificationServiceImpl(NotificationRepository notificationRepository) {
+    public NotificationServiceImpl(NotificationRepository notificationRepository, WebSocketNotificationService webSocketNotificationService) {
         this.notificationRepository = notificationRepository;
+        this.webSocketNotificationService = webSocketNotificationService;
     }
 
     @Override
@@ -26,7 +32,13 @@ public class NotificationServiceImpl implements NotificationService {
         notification.setUserId(userId);
         notification.setRead(false);
         notification.setDateCreated(new Date());
-        return notificationRepository.save(notification);
+//        return notificationRepository.save(notification);
+        Notification savedNotification = notificationRepository.save(notification);
+
+        // Broadcast notification via WebSocket
+        webSocketNotificationService.sendNotification("/topic/notifications", savedNotification);
+
+        return savedNotification;
     }
 
     @Override

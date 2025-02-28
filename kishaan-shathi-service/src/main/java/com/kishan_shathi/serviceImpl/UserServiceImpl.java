@@ -3,6 +3,7 @@ package com.kishan_shathi.serviceImpl;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,12 +27,15 @@ public class UserServiceImpl implements UserService {
 	private final JwtService jwtService;
 	private final PasswordEncoder encoder;
 	private final MyUserDetailasService myUserDetailasService;
-	public UserServiceImpl(UserRepository userRepo,JwtService jwtService,PasswordEncoder encoder,MyUserDetailasService myUserDetailasService) {
+	private final UserRepository userRepository;
+
+	public UserServiceImpl(UserRepository userRepo, JwtService jwtService, PasswordEncoder encoder, MyUserDetailasService myUserDetailasService, UserRepository userRepository) {
 		this.userRepo=userRepo;
 		this.jwtService=jwtService;
 		this.myUserDetailasService=myUserDetailasService;
 		this.encoder=encoder;
-	}
+        this.userRepository = userRepository;
+    }
 
 	@Override
 	public String saveUsers(UserDto userEntityDto) {
@@ -54,6 +58,22 @@ public class UserServiceImpl implements UserService {
 				.jwtToken(jwtToken)
 				.refreshToken(jwtRefreshToken)
 				.userdetails(userRepo.findByEmail(email).get()).build();
+	}
+
+
+	@Override
+	public List<UserDto> getAllUsers() {
+		// Fetch all users and map them to UserDto objects
+		return userRepository.findAll().stream()
+				.map(user -> new UserDto(
+						user.getUserId(),
+						user.getName(),
+						null, // Exclude sensitive fields like password
+						user.getRole(),
+						user.getEmail(),
+						user.getPhoneNumber()
+				))
+				.collect(Collectors.toList());
 	}
 
 }

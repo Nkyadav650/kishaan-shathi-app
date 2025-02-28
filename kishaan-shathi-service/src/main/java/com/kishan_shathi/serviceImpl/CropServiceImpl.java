@@ -1,5 +1,6 @@
 package com.kishan_shathi.serviceImpl;
 
+import java.sql.Blob;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -25,22 +26,46 @@ public class CropServiceImpl implements CropService {
 		this.cropRepo = cropRepo;
 	}
 
+//	@Override
+//	public CropDto addCrop(CropDto cropDto) {
+//		log.info("addcrop method in crop service entered");
+//		cropDto.setCropId(randomString());
+//		log.info("cropId : {}", cropDto.getCropId());
+//		Crop crop = new Crop();
+//		log.info("crop1 : {}", crop);
+//		BeanUtils.copyProperties(cropDto, crop);
+//		log.info("crop2 : {}", crop);
+//		Crop savedCrop = cropRepo.save(crop);
+//		log.info("savedCrop : {}", savedCrop);
+//		if (savedCrop != null) {
+//			return cropDto;
+//		} else {
+//			return null;
+//		}
+//	}
+
+
+
 	@Override
 	public CropDto addCrop(CropDto cropDto) {
-		log.info("addcrop method in crop service entered");
+		log.info("addCrop method in crop service entered");
+
+		// Generate unique cropId
 		cropDto.setCropId(randomString());
-		log.info("cropId : {}", cropDto.getCropId());
+		log.info("cropId: {}", cropDto.getCropId());
+
+		// Convert byte[] image directly to cropImage
+		byte[] cropImageData = cropDto.getCropImage(); // Already byte[] in DTO
+
 		Crop crop = new Crop();
-		log.info("crop1 : {}", crop);
+		log.info("Creating Crop entity with ID: {}", cropDto.getCropId());
 		BeanUtils.copyProperties(cropDto, crop);
-		log.info("crop2 : {}", crop);
+		crop.setCropImage(cropImageData); // Set byte[] image data directly
+
 		Crop savedCrop = cropRepo.save(crop);
-		log.info("savedCrop : {}", savedCrop);
-		if (savedCrop != null) {
-			return cropDto;
-		} else {
-			return null;
-		}
+		//log.info("Saved Crop: {}", savedCrop);
+
+		return savedCrop != null ? cropDto : null;
 	}
 
 	@Override
@@ -85,7 +110,7 @@ public class CropServiceImpl implements CropService {
 	}
 
 	private static String randomString() {
-		return UUID.randomUUID().toString().replaceAll("-", "").trim();
+		return UUID.randomUUID().toString().replace("-", "").trim();
 	}
 
 }

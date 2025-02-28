@@ -18,6 +18,7 @@ public class NotificationWebSocketController {
         this.webSocketNotificationService = webSocketNotificationService;
     }
 
+    //app/senNotification
     @MessageMapping("/sendNotification")
     @SendTo("/topic/notifications")
     public Notification broadcastNotification(Notification notification) {

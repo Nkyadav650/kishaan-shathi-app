@@ -33,6 +33,7 @@ public class SellingRequestDto {
 	
 	// Optionally, if the crop is certified (e.g., organic certification)
 	private Boolean isCertifiedOrganic; // Whether the crop is certified organic (true/false)
-    private Date requestDate;
+	private byte[] certificate;
+	private Date requestDate;
     private Date expectedCompletionDate;
 }

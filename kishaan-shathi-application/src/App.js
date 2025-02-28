@@ -27,9 +27,7 @@ function App() {
           <Route path='/dealer' element={<Dealer />} />
           <Route path="/croplist" element={<CropList />} />
           <Route path='/notification' element={<Notification />} />
-          <Route path='/noti' element={<Notifications />} />
           <Route path='/about' element={<About />} />
-
         </Routes>
       </BrowserRouter>
 
