@@ -1,0 +1,39 @@
+{ "Crop":[
+    {
+      "id": 1,
+      "name": "Wheat",
+      "price": "$15 per kg",
+      "description": "High-quality wheat for baking and cooking.",
+      "image": "https://example.com/wheat.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Rice",
+      "price": "$12 per kg",
+      "description": "Premium rice, perfect for all types of cuisines.",
+      "image": "https://example.com/rice.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Corn",
+      "price": "$10 per kg",
+      "description": "Freshly harvested corn for salads and grilling.",
+      "image": "https://example.com/corn.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Tomatoes",
+      "price": "$3 per kg",
+      "description": "Juicy and ripe tomatoes for sauces and salads.",
+      "image": "https://example.com/tomatoes.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Potatoes",
+      "price": "$5 per kg",
+      "description": "Freshly dug potatoes, great for fries or mash.",
+      "image": "https://example.com/potatoes.jpg"
+    }
+  ]
+  }
+  

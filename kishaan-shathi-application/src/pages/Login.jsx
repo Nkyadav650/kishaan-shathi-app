@@ -92,7 +92,7 @@ const Login = () => {
                         />
                         <span className='password-eye'
                             onClick={() => setPasswordVisible(!passwordVisible)}>
-                            {passwordVisible ? <IoMdEye /> : <IoIosEyeOff />}
+                            {passwordVisible ?  <IoIosEyeOff />:<IoMdEye /> }
                         </span>
 
                     </div>

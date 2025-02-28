@@ -11,17 +11,8 @@
       {
         "title": "Our Vision",
         "description": "Our vision is to become the leading global platform that drives positive change in the agriculture sector, ensuring that every farmer has access to the resources and opportunities they need to succeed. We aspire to build a future where technology and innovation create sustainable, profitable, and resilient farming practices. By fostering strong connections between farmers, buyers, and suppliers, we envision a more inclusive and prosperous agricultural economy, where every farmer can thrive, and the world benefits from better food security and sustainable farming practices."
-      },
-      {
-        "title": "Our Values",
-        "description": {
-          "integrity": "We are committed to transparency, honesty, and fairness in every aspect of our platform.",
-          "sustainability": "We advocate for eco-friendly and sustainable farming practices that protect the environment for future generations.",
-          "community": "We believe in the power of collaboration and strive to foster a supportive and empowering community for farmers, suppliers, and buyers alike.",
-          "innovation": "We embrace technology and continuously seek innovative solutions to improve farming practices, access to resources, and market opportunities.",
-          "commitment": "We are dedicated to improving the lives of farmers, ensuring their needs are met, and helping them achieve long-term success."
-        }
       }
+   
     ]
   }
   

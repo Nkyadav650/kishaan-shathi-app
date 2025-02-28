@@ -8,6 +8,7 @@
   padding: 0px;
   font-family: 'Roboto', sans-serif;
   background-color: transparent;
+  
 }
 /* Carousel section styling */
 .carousel-section {
@@ -33,16 +34,12 @@
   /* Heading style */
   .form-container h2 {
     text-align: center;
-    color: #333;
     margin-bottom: 20px;
     font-size: 24px;
     font-weight: 500;
   }
   
   /* General styling for input and textarea fields */
-  .input-group {
-    margin-bottom: 10px;
-  }
   
   .input-field {
     width: 100%;
@@ -50,23 +47,13 @@
     margin: 1px 0;
     border: 1px solid #ddd;
     border-radius: 6px;
+    color: #28a745;
     font-size: 16px;
-    background-color: #fff;
+    background-color: transparent;
     transition: border 0.3s ease-in-out;
   }
   
-  .input-field:focus {
-    border-color: #28a745;
-    outline: none;
-  }
- 
-  /* Placeholder style */
-  .input-field::placeholder {
-    color: #aaa;
-    font-size: 14px;
-    font-style: italic;
-  }
-  
+
   /* Submit button style */
   .submit-button {
     width: 100%;
@@ -128,8 +115,7 @@
 
 /* Each solution box */
 .solution-box {
-  background-color: #ffffff;
-  border: 2px solid #f0f0f0;
+ 
   border-radius: 10px;
   width: 300px;
   padding: 25px;
@@ -148,7 +134,7 @@
 .solution-box h3 {
   font-size: 1.6rem;
   font-weight: bold;
-  color: #2c3e50;
+
   margin-bottom: 15px;
   text-align:center; /* Center the title */
 }

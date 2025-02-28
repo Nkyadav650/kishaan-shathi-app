@@ -1,6 +1,8 @@
 package com.kishan_shathi.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +17,9 @@ import lombok.NoArgsConstructor;
 public class Crop {
 
 	@Id
+	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 	private String cropId;
 	private String cropName;
 	private String cropType;

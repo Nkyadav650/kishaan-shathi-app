@@ -28,6 +28,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* Ensure navbar items are aligned to the right */
 #navbar-nav {
+  margin-left: 80px;
   display: flex;
   justify-content: flex-end;  /* Align nav links to the right */
   width: 100%; /* Ensure the navbar occupies full width */

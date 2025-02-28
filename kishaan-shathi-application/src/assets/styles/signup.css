@@ -32,16 +32,21 @@
     color: red;
   }
    
-  input {
+  input,textarea {
     border-radius: 8px;
     border: 1px solid #ccc;
     padding: 5px;
   }
-  input:focus {
+  input:focus ,textarea:focus{
    
     border-color: #28a745;
     border-width: 1px;
     outline: none;
+  }
+  .input::placeholder,textarea::placeholder {
+    color: #aaa;
+    font-size: 14px;
+    font-style: italic;
   }
   .login-btn{
     color: blue;

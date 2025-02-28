@@ -11,6 +11,7 @@ import Dealer from "./pages/Dealer";
 import About from "./pages/About";
 import Notifications from './pages/Notifications'
 import Notification from './components/Notification';
+import CropList from "./pages/CropList";
 
 
 function App() {
@@ -24,9 +25,9 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path='/farmer' element={<Farmer />} />
           <Route path='/dealer' element={<Dealer />} />
-
-          <Route path='/notification' element={<Notification/>} />
-          <Route path='/noti' element={<Notifications/>}/>
+          <Route path="/croplist" element={<CropList />} />
+          <Route path='/notification' element={<Notification />} />
+          <Route path='/noti' element={<Notifications />} />
           <Route path='/about' element={<About />} />
 
         </Routes>

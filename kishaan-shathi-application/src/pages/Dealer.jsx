@@ -1,168 +1,99 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Base from "../layouts/Base";
-import "../assets/styles/dealer.css";
-import { Carousel } from "react-responsive-carousel";
+import '../assets/styles/farmer.css'
+import RegistrationForm from '../common/RegistrationForm';
+import solutionsData from '../assets/json data/OurSolution.json';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import carousel1 from "../assets/images/carousel1.png";
 import carousel2 from "../assets/images/carousel2.jpg";
 import carousel3 from "../assets/images/carousel3.jpg";
 import axios from "axios";
 import { toast } from "react-toastify";
+import ImageSlider from "../common/ImageSlider.jsx";
 
 
 const Dealer = () => {
-  const [formData, setFormData] = useState({
-    dealerId: "D001",
-    name: "",
-    email: "",
-    phoneNumber: "",
-    addressLine: "",
-  });
+  const [solutions, setSolutions] = useState([]);
+  const title = "Dealer Registration";
+  useEffect(() => {
+    setSolutions(solutionsData.features);
+  }, []);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  const carouselImages = [carousel1, carousel2, carousel3];
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleFormSubmit = async (formData) => {
     try {
-      // Fetch the token from localStorage
-      const authToken = localStorage.getItem("jwtToken");
-      console.log("Authentication token: " + authToken);
-
-      // Check if the token exists
-      if (!authToken || authToken === "undefined") {
-        toast.error("Authentication token is missing. Please log in again.");
+      const authToken = localStorage.getItem('jwtToken');
+      if (!authToken || authToken === 'undefined') {
+        toast.error('Authentication token is missing. Please log in again.');
         return;
       }
 
-
-      // Prepare the payload for the API request
+      const fullAddress = `${formData.addressLine}, ${formData.city}, ${formData.state}, ${formData.pincode}, ${formData.country}`;
+  
       const payload = {
-        dealerId: formData.dealerId,
+        farmerId: formData.farmerId,
         name: formData.name,
         email: formData.email,
         phoneNumber: formData.phoneNumber,
-        address: formData.addressLine,
+        address: fullAddress,
       };
-
-      // Define the headers with Authorization Bearer token
+  
       const headers = {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${authToken}`, // Using token from localStorage
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${authToken}`,
       };
-
-      // Make the API request to save the dealer data
+  
       const response = await axios.post(
-        "http://localhost:2024/api/dealers/save",
+        'http://localhost:2024/api/farmers/save',
         payload,
         { headers }
       );
-
-      console.log("Response:", response.data);
-      toast.success("Dealer Registration Successful!");
+      console.log('Response:', response.data);
     } catch (error) {
-      console.error(
-        "Error saving dealer data:",
-        error.response?.data || error.message
-      );
-      toast.error("Failed to save dealer data. Please try again.");
+      console.error('Error saving farmer data:', error.response?.data || error.message);
+      toast.error('Failed to save farmer data. Please try again.');
     }
   };
 
-  const carouselImages = [
-    carousel1,
-    carousel2,
-    carousel3,
-  ];
+  const user=localStorage.getItem("userDetails");
+  console.log("userDetails: ",user?.firstName);
+  
+  const initialFormData = {
+    farmerId: "D003",
+    name: '',
+    email: '',
+    phoneNumber: '',
+    addressLine: '',
+    city: '',
+    state: '',
+    pincode: '',
+    country: '',
+  };
 
   return (
-    <div>
-      <Base>
-        <div className="dealer-container">
-          {/* Carousel Section */}
-          <div className="carousel-section">
-            <Carousel showThumbs={false} infiniteLoop autoPlay>
-              {carouselImages.map((image, index) => (
-                <div key={index}>
-                  <img src={image} alt={`Carousel Image ${index + 1}`} />
-                </div>
-              ))}
-            </Carousel>
-          </div>
-
-          {/* Dealer Registration Form Section */}
-          <div className="form-section">
-            <h2>Dealer Registration</h2>
-            <form onSubmit={handleSubmit}>
-              <div className="input-group">
-                <input
-                  type="text"
-                  name="dealerId"
-                  value={formData.dealerId}
-                  readOnly
-                  className="input-field"
-                  placeholder="Dealer ID"
-                />
-              </div>
-              <div className="input-group">
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Enter your name"
-                  required
-                  className="input-field"
-                />
-              </div>
-              <div className="input-group">
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter your email"
-                  required
-                  className="input-field"
-                />
-              </div>
-              <div className="input-group">
-                <input
-                  type="tel"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
-                  onChange={handleChange}
-                  placeholder="Enter your phone number"
-                  required
-                  className="input-field"
-                />
-              </div>
-              <div className="input-group">
-                <input
-                  type="text"
-                  name="addressLine"
-                  value={formData.addressLine}
-                  onChange={handleChange}
-                  placeholder="Enter address line"
-                  required
-                  className="input-field"
-                />
-              </div>
-              <div>
-                <button type="submit" className="submit-button">
-                  Register
-                </button>
-              </div>
-            </form>
-          </div>
+    <Base>
+      <div className="form-container">
+        <ImageSlider images={carouselImages} />
+        <RegistrationForm
+        title={title}
+          onSubmit={handleFormSubmit}
+          initialFormData={initialFormData}
+          solutions={solutions}
+        />
+      </div>
+      <div>
+        <h3>Our Vision</h3>
+        <div className="solutions-container">
+          {solutions.map((solution, index) => (
+            <div key={index} className="solution-box">
+              <h3>{solution.title}</h3>
+              <p>{solution.description}</p>
+            </div>
+          ))}
         </div>
-      </Base>
-    </div>
+      </div>
+    </Base>
   );
 };
 

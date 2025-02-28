@@ -1,4 +1,6 @@
-Building an application where farmers and dealers can interact and sell crops online, and where you track deliveries using Camunda for workflow automation, requires a combination of various components and architectural elements. Here's a step-by-step guide to designing such an application, along with a workflow model for integrating Camunda for tracking deliveries.
+Building an application where farmers and dealers can interact and sell crops online, and where you track deliveries using Camunda for workflow automation,
+ requires a combination of various components and architectural elements. Here's a step-by-step guide to designing such an application, along with
+ a workflow model for integrating Camunda for tracking deliveries.
 
 High-Level Architecture:
 Frontend (User Interface): Web-based UI for Farmers and Dealers to interact.

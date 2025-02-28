@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CropDto {
 
+	private long id;
 	private String cropId; // Unique identifier for the crop (e.g., SKU or reference code)
 	private String cropName; // Name of the crop (e.g., "Wheat", "Rice")
 	private String cropType; // Type of crop (e.g., "Cereal", "Vegetable")
